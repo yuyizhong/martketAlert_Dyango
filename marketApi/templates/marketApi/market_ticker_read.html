@@ -1,0 +1,48 @@
+{% extends './market_ticker.html' %}
+
+{%block content%}
+
+<div class="container card p-3 mt-5 border-dark" style="width: 95%;">
+    <a href={% url 'create_ticker' %} class="btn btn-outline-primary mb-3">Go home</a>
+    <h5 class=" card p-2 text-center mb-3">
+       List the TICKER
+    </h5>
+    <hr>
+
+   <table class="table table-responsive-sm">
+    <thead>
+        <tr>
+            <th>
+                Ticker
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Comments
+            </th>
+        </tr>
+    </thead>
+    
+    {% for data in data_read %}
+    <tr>
+        <td>{{data.ticker}}</td>
+        <td>{{data.price}}</td>
+        <td>{{data.start_date}}</td>
+        <td>{{data.end_date}}</td>
+        <td>{{data.comment}}</td>
+    </tr>
+    {% endfor %}
+   </table>
+
+
+   
+</div>
+
+{% endblock content %}
